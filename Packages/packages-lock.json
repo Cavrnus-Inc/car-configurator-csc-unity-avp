@@ -26,8 +26,25 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.collections": {
+      "version": "1.2.4",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.6.6",
+        "com.unity.test-framework": "1.1.31"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ext.flatsharp": {
+      "version": "1.1.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -41,7 +58,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.31",
+      "version": "3.0.34",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -86,6 +103,39 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.polyspatial": {
+      "version": "1.3.11",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.collections": "1.2.3",
+        "com.unity.inputsystem": "1.4.4",
+        "com.unity.shadergraph": "14.0.1",
+        "com.unity.textmeshpro": "3.0.7",
+        "com.unity.ext.flatsharp": "1.1.1",
+        "com.unity.modules.video": "1.0.0",
+        "com.unity.xr.core-utils": "2.3.0",
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.polyspatial.xr": {
+      "version": "1.3.11",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.hands": "1.3.0",
+        "com.unity.inputsystem": "1.4.4",
+        "com.unity.polyspatial": "1.3.11",
+        "com.unity.textmeshpro": "3.0.7",
+        "com.unity.xr.core-utils": "2.3.0",
+        "com.unity.xr.arfoundation": "5.1.1",
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
@@ -213,19 +263,32 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.xr.hands": {
+      "version": "1.4.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.xr": "1.0.0",
+        "com.unity.inputsystem": "1.3.0",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.xr.core-utils": "2.2.0",
+        "com.unity.xr.management": "4.0.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.xr.interaction.toolkit": {
-      "version": "2.6.3",
+      "version": "3.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
-        "com.unity.inputsystem": "1.7.0",
+        "com.unity.modules.xr": "1.0.0",
+        "com.unity.inputsystem": "1.8.1",
         "com.unity.mathematics": "1.2.6",
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.xr.core-utils": "2.2.3",
-        "com.unity.modules.physics": "1.0.0",
-        "com.unity.xr.legacyinputhelpers": "2.1.10"
+        "com.unity.modules.physics": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },

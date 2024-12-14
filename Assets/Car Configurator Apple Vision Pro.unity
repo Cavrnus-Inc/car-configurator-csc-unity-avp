@@ -653,13 +653,57 @@ MonoBehaviour:
   m_OutputConfiguration: {fileID: 11400000, guid: 532c6417d96d14a77b348aa29ccbacd6,
     type: 2}
   m_CullingMask:
-    serializedVersion: 2
     m_Bits: 4294967295
   OpenWindowOnLoad: 1
+  m_MatricesValid: 0
+  m_VolumeToWorld:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
+  m_WorldToVolume:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
+  m_BackingCameraGO: {fileID: 0}
+  m_BackingCamera: {fileID: 0}
+  m_PolySpatialLayerIndex: 0
+  m_PolySpatialLayerMask: 0
+  m_WindowOpen: 0
+  m_WindowFocused: 0
+  m_RequestedWindowOpenState: 0
   m_ShowVolumeCameraEventsFoldout: 1
   OnWindowEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
+  m_LastOutputDimensions: {x: 0, y: 0, z: 0}
+  m_LastContentDimensions: {x: 0, y: 0, z: 0}
 --- !u!4 &1516201165
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +845,7 @@ PrefabInstance:
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: GuestName
-      value: AVP User
+      value: AVP Anthony
       objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
@@ -816,7 +860,7 @@ PrefabInstance:
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: AdditionalSettings.DisableVideo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
@@ -831,7 +875,7 @@ PrefabInstance:
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: AdditionalSettings.DisableAcousticEchoCancellation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731373496736375337, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}

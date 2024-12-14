@@ -6,6 +6,7 @@ namespace CavrnusDemo
     {
         private AudioSource audioSource;
         private string selectedMicrophone;
+        private bool isRecording;
 
         void Start()
         {
@@ -17,8 +18,10 @@ namespace CavrnusDemo
 
                 // Initialize AudioSource component
                 audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.loop = true; // Loop to keep capturing audio
-                audioSource.mute = true; // Mute playback to avoid feedback
+                audioSource.loop = false; // Allow playback after recording
+                audioSource.mute = true; // Mute during recording to avoid feedback
+
+                isRecording = false;
             }
             else
             {
@@ -29,7 +32,9 @@ namespace CavrnusDemo
         public void SetMicrophoneStatus(bool state)
         {
             if (state)
+            {
                 StartMicrophone();
+            }
             else
             {
                 StopMicrophone();
@@ -42,11 +47,8 @@ namespace CavrnusDemo
             {
                 Debug.Log("Starting microphone...");
                 audioSource.clip = Microphone.Start(selectedMicrophone, true, 10, 44100); // 10-second buffer
-                while (Microphone.GetPosition(selectedMicrophone) <= 0)
-                {
-                } // Wait for the microphone to start
-
-                audioSource.Play();
+                while (Microphone.GetPosition(selectedMicrophone) <= 0) { } // Wait for the microphone to start
+                isRecording = true;
                 Debug.Log("Microphone started.");
             }
         }
@@ -57,8 +59,19 @@ namespace CavrnusDemo
             {
                 Debug.Log("Stopping microphone...");
                 Microphone.End(selectedMicrophone);
-                audioSource.Stop();
-                Debug.Log("Microphone stopped.");
+                isRecording = false;
+
+                // Playback the recorded audio
+                if (audioSource.clip != null)
+                {
+                    audioSource.mute = false; // Unmute for playback
+                    audioSource.Play();
+                    Debug.Log("Playing back recorded audio...");
+                }
+                else
+                {
+                    Debug.LogWarning("No audio clip available for playback.");
+                }
             }
         }
 

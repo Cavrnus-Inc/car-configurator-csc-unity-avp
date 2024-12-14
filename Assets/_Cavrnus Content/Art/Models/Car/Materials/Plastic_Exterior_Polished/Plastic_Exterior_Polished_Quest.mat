@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -388,9 +388,11 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_15e0ab2230ba4b3fb89f0d496a5af03b: {r: 0.2980392, g: 0.2980392, b: 0.2980392, a: 1}
+    - Color_15e0ab2230ba4b3fb89f0d496a5af03b: {r: 0.2980392, g: 0.2980392, b: 0.2980392,
+        a: 1}
     - Color_38879BCF: {r: 0.2, g: 0.2, b: 0.2, a: 0}
-    - Color_8b4de6376ac44b73b95b120bd55ad1f9: {r: 0.2980392, g: 0.2980392, b: 0.2980392, a: 1}
+    - Color_8b4de6376ac44b73b95b120bd55ad1f9: {r: 0.2980392, g: 0.2980392, b: 0.2980392,
+        a: 1}
     - Vector2_2B7B74A: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_D3BC5680: {r: 2, g: 2, b: 0, a: 0}
     - _BaseColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
@@ -411,3 +413,4 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

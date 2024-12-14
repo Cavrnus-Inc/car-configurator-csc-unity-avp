@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -154,7 +154,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 3741202038889336908, guid: 8e4924d9e9a384444b5a1f41573f71a4, type: 3}
+        m_Texture: {fileID: 3741202038889336908, guid: 8e4924d9e9a384444b5a1f41573f71a4,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -166,7 +167,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: -7080613699739145697, guid: 8e4924d9e9a384444b5a1f41573f71a4, type: 3}
+        m_Texture: {fileID: -7080613699739145697, guid: 8e4924d9e9a384444b5a1f41573f71a4,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -372,7 +374,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_bceaf1b7035f4fcc928e1c4c80bc04c1: {r: 0.30588236, g: 0.3254902, b: 0.34901962, a: 0}
+    - Color_bceaf1b7035f4fcc928e1c4c80bc04c1: {r: 0.30588236, g: 0.3254902, b: 0.34901962,
+        a: 0}
     - _BaseColor: {r: 0.3067647, g: 0.3252941, b: 0.35, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.30676466, g: 0.32529408, b: 0.34999996, a: 1}
@@ -391,3 +394,4 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

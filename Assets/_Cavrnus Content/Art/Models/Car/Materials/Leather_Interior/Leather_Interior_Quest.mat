@@ -51,7 +51,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_24a18700fbd149809b02a325dc4ba326:
-        m_Texture: {fileID: 3741202038889336908, guid: 8e4924d9e9a384444b5a1f41573f71a4, type: 3}
+        m_Texture: {fileID: 3741202038889336908, guid: 8e4924d9e9a384444b5a1f41573f71a4,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_3da1389ceae548a99bb463c642db345f:
@@ -59,11 +60,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_a8818036defb4e2cbafe2897fe60118e:
-        m_Texture: {fileID: -2789490567366984259, guid: 4179dc54acc2cc9498e0388aec2c0af0, type: 3}
+        m_Texture: {fileID: -2789490567366984259, guid: 4179dc54acc2cc9498e0388aec2c0af0,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_fa7a593630ee467f839fb85c18c51e06:
-        m_Texture: {fileID: -7080613699739145697, guid: 8e4924d9e9a384444b5a1f41573f71a4, type: 3}
+        m_Texture: {fileID: -7080613699739145697, guid: 8e4924d9e9a384444b5a1f41573f71a4,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -375,6 +378,7 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &7001286400742836157
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -387,4 +391,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9

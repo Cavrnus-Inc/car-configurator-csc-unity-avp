@@ -1,84 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
+using CavrnusSdk.API;
 using UnityEngine;
 
 namespace CavrnusDemo
 {
     public class CavrnusMicrophoneTest : MonoBehaviour
     {
-        private AudioSource audioSource;
-        private string selectedMicrophone;
-        private bool isRecording;
+        private CavrnusSpaceConnection spaceConnection;
 
         void Start()
         {
-            // Check for available microphones
-            if (Microphone.devices.Length > 0)
+            CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc =>
             {
-                selectedMicrophone = Microphone.devices[0];
-                Debug.Log($"Selected Microphone: {selectedMicrophone}");
+                spaceConnection = sc;
 
-                // Initialize AudioSource component
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.loop = false; // Allow playback after recording
-                audioSource.mute = true; // Mute during recording to avoid feedback
+                StartCoroutine(InitLSAudio());
+                
+                // Check for available microphones
+                if (Microphone.devices.Length > 0)
+                {
+                }
+                else
+                {
+                    Debug.LogError("No microphone detected!");
+                }
+            });
+        }
 
-                isRecording = false;
-            }
-            else
-            {
-                Debug.LogError("No microphone detected!");
-            }
+        private IEnumerator InitLSAudio()
+        {
+            yield return new WaitForSeconds(5f);
+
+            SetMicrophoneStatus(true);
         }
 
         public void SetMicrophoneStatus(bool state)
         {
+            if (spaceConnection == null)
+                return;
+            
             if (state)
-            {
                 StartMicrophone();
-            }
             else
             {
-                StopMicrophone();
+                if (routine != null)
+                    StopCoroutine(routine);
             }
         }
 
+        private Coroutine routine;
         private void StartMicrophone()
         {
-            if (selectedMicrophone != null)
+            spaceConnection.FetchAudioInputs(inputDevices =>
             {
-                Debug.Log("Starting microphone...");
-                audioSource.clip = Microphone.Start(selectedMicrophone, true, 10, 44100); // 10-second buffer
-                while (Microphone.GetPosition(selectedMicrophone) <= 0) { } // Wait for the microphone to start
-                isRecording = true;
-                Debug.Log("Microphone started.");
-            }
+                if (routine != null)
+                    StopCoroutine(routine);
+                
+                routine = StartCoroutine(SwitchAudioInputs(inputDevices));
+            });
         }
-
-        private void StopMicrophone()
+        
+        private IEnumerator SwitchAudioInputs(List<CavrnusInputDevice> inputDevices)
         {
-            if (selectedMicrophone != null)
+            foreach (var input in inputDevices)
             {
-                Debug.Log("Stopping microphone...");
-                Microphone.End(selectedMicrophone);
-                isRecording = false;
+                print($"TEST Audio Device: {input.Name}");
+                spaceConnection.UpdateAudioInput(input);
 
-                // Playback the recorded audio
-                if (audioSource.clip != null)
-                {
-                    audioSource.mute = false; // Unmute for playback
-                    audioSource.Play();
-                    Debug.Log("Playing back recorded audio...");
-                }
-                else
-                {
-                    Debug.LogWarning("No audio clip available for playback.");
-                }
+                yield return new WaitForSeconds(10f);
             }
-        }
-
-        void OnApplicationQuit()
-        {
-            // Ensure microphone is stopped when the application quits
-            StopMicrophone();
+            
+            print($"FINISH Testing Audio Devices");
         }
     }
 }

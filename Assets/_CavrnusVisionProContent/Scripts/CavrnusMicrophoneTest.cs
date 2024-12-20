@@ -19,27 +19,21 @@ namespace CavrnusDemo
         {
             audioSource = GetComponent<AudioSource>();
             
-            CavrnusFunctionLibrary.AwaitAnySpaceConnection(sc =>
+            vc.OnWindowEvent.AddListener(ws =>
             {
-                spaceConnection = sc;
-                // StartCoroutine(InitializeMicrophone());
-                      
-                vc.OnWindowEvent.AddListener(ws =>
-                {
-                    if (isFocused == ws.IsFocused)
-                        return;
+                if (isFocused == ws.IsFocused)
+                    return;
 
-                    if ((isFocused = ws.IsFocused))
-                    {
-                        Debug.Log($"CAVRNUS_DEBUG: Starting Microphone");
-                        StartCoroutine(InitializeMicrophone());
-                    }
-                    else
-                    {
-                        Debug.Log($"CAVRNUS_DEBUG: Stopping Microphone");
-                        StopMicrophone();
-                    }
-                });
+                if ((isFocused = ws.IsFocused))
+                {
+                    Debug.Log($"CAVRNUS_DEBUG: Starting Microphone");
+                    StartCoroutine(InitializeMicrophone());
+                }
+                else
+                {
+                    Debug.Log($"CAVRNUS_DEBUG: Stopping Microphone");
+                    StopMicrophone();
+                }
             });
         }
 
@@ -81,27 +75,37 @@ namespace CavrnusDemo
 
                 if (Microphone.IsRecording(null))
                 {
-                    spaceConnection.FetchAudioInputs(list =>
+                    CavrnusFunctionLibrary.JoinSpace("csc-dev", connection =>
                     {
-                        foreach (var device in list)
-                            Debug.Log($"CAVRNUS_DEBUG: Microphone device found: {device.Name}");
+                        spaceConnection = connection;
+                        spaceConnection.FetchAudioInputs(list =>
+                        {
+                            foreach (var device in list)
+                                Debug.Log($"CAVRNUS_DEBUG: Microphone device found: {device.Name}");
                 
-                        spaceConnection.UpdateAudioInput(list[0]); // guessing here...
-                        audioSource.Play();
-                        Debug.Log($"CAVRNUS_DEBUG: Microphone started successfully after {Time.time - startTime} seconds.");
+                            spaceConnection.UpdateAudioInput(list[0]); // guessing here...
+                            audioSource.Play();
+                            Debug.Log($"CAVRNUS_DEBUG: Microphone started successfully after {Time.time - startTime} seconds.");
+                        });
+                        
+
+                    }, s =>
+                    {
+                        
                     });
-                    
+             
                     yield break;
                 }
             }
 
             Debug.LogError("CAVRNUS_DEBUG: Failed to start microphone after maximum retries.");
         }
-
-
+        
         private void StopMicrophone()
         {
             Microphone.End(null);
+
+            spaceConnection?.ExitSpace();
         }
     }
 }

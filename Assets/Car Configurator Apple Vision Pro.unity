@@ -165,8 +165,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470084162}
-  - component: {fileID: 470084161}
   - component: {fileID: 470084164}
+  - component: {fileID: 470084165}
   m_Layer: 0
   m_Name: MicrophoneTest
   m_TagString: Untagged
@@ -174,19 +174,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &470084161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470084160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ab029c94414704ab3e3b73c1209ef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vc: {fileID: 1516201164}
 --- !u!4 &470084162
 Transform:
   m_ObjectHideFlags: 0
@@ -298,6 +285,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &470084165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470084160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbdb837284d4255a7c002b750a5bd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceJoinId: csc-dev
+  vc: {fileID: 1516201164}
 --- !u!1001 &652756610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
       propertyPath: SpaceJoinMethod
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3843911914220772793, guid: bc329ed98d4c9a44a967d563bb09778d,
         type: 3}
@@ -1270,7 +1271,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnToggleChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 470084161}
+      objectReference: {fileID: 0}
     - target: {fileID: 3378412369932155113, guid: 91f6d05bf6146493f810893eaec029c5,
         type: 3}
       propertyPath: m_OnToggleChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
